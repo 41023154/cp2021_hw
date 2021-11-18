@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='run-1-1.html'>run-1-1</a><li><a href='run-1-2.html'>run-1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li class='has-children'><a href='run-2.html'>run-2</a><ul class='dropdown'><li><a href='run src.html'>run src</a></li></li></ul></ul><li><a href='HW3.html'>HW3</a><li><a href='Final Project.html'>Final Project</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='run-1-1.html'>run-1-1</a><li><a href='run-1-2.html'>run-1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='run.html'>run</a></li></ul><li><a href='HW3.html'>HW3</a><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -188,7 +188,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/zeromarurei/22e4b041d9bf9d75ecf1be257ebf4e74/raw/21864f6d8db6ab0c9750645d119ca567f3d3f6e9/gistfile1.txt"
+        url = "https://gist.githubusercontent.com/zeromarurei/22e4b041d9bf9d75ecf1be257ebf4e74/raw/c27ba8810aaca6bf00183f7b5a5765e689883af9/gistfile1.txt"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -221,8 +221,14 @@ run()
 <p></p>
 <!-- 程式執行 ouput 區 -->
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
-<div style="width: 100%; height: 100%;"></div>
-<br />HW1 << <a href='HW1.html'>Previous</a> <a href='run-1-2.html'>Next</a> >> run-1-2</div>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />HW1 << <a href='HW1.html'>Previous</a> <a href='run-1-2.html'>Next</a> >> run-1-2</div>
         
     <!-- footer -->
       <div class="container">

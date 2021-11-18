@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='run-1-1.html'>run-1-1</a><li><a href='run-1-2.html'>run-1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li class='has-children'><a href='run-2.html'>run-2</a><ul class='dropdown'><li><a href='run src.html'>run src</a></li></li></ul></ul><li><a href='HW3.html'>HW3</a><li><a href='Final Project.html'>Final Project</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='run-1-1.html'>run-1-1</a><li><a href='run-1-2.html'>run-1-2</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='run.html'>run</a></li></ul><li><a href='HW3.html'>HW3</a><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -139,7 +139,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW2 << <a href='HW2.html'>Previous</a> <a href='run src.html'>Next</a> >> run src<br /><h1>run-2</h1>
+    <div id="tipue_search_content">HW2 << <a href='HW2.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3<br /><h1>run</h1>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -188,7 +188,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/mdecourse/e896a4705a95ac8cc4147b355b0e87ef/raw/8954b8280c524c5781dc3c0b3565bc489d3aa3a3/cango_gear1.py"
+        url = "https://gist.githubusercontent.com/zeromarurei/80b00eaa17c0d93fe1d1c426bbfff46f/raw/9dc5b25a2c691f61ccdee8a13dbd7e6d47fae93b/gistfile1.txt"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -199,7 +199,7 @@ def run():
     #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    Ace.run()
+    #Ace.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
@@ -228,8 +228,7 @@ run()
 <script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
 <script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
 <script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script>
-<br />HW2 << <a href='HW2.html'>Previous</a> <a href='run src.html'>Next</a> >> run src</div>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><br />HW2 << <a href='HW2.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3</div>
         
     <!-- footer -->
       <div class="container">
