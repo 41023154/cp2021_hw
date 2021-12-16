@@ -4,10 +4,128 @@
 <p>41023154</p>
 <p>網站倉儲: <a href="https://github.com/zeromarurei/cp2021">https://github.com/zeromarurei/cp2021</a> </p>
 <p>網站連結: <a href="https://zeromarurei.github.io/cp2021_hw">https://zeromarurei.github.io/cp2021_hw</a> </p>
-<p>learning</p>
+<p>learning.</p>
 <p></p>
+<h1>Exam</h1>
 <p></p>
-<h1>HW1</h1>
+<h2>W13</h2>
+<p><button id="add1to100">列出十個座標</button></p>
+<p></p>
+<!-- 導入 brython 程式庫 -->
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="/static/ace/ace.js" type="text/javascript"></script>
+<script src="/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<!-- 內建程式 1 ####################################### 內建程式 1 開始-->
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run1():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = ""
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace1.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
+# 呼叫函式執行
+run1()
+</script>
+</p>
+<!-- 內建程式 1 ####################################### 內建程式 1 結束-->
+<p></p>
+<!-- button 程式 1 ####################################### button 程式 1 開始-->
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+add1to100_url = "https://gist.githubusercontent.com/zeromarurei/1a58139c06513db48d8f294026b6d904/raw/45845b34f30577ce0607830641c26c3aade843c5/%25E5%258F%2596%25E4%25BA%2582%25E6%2595%25B82"
+
+# 從 gist 取得程式碼
+add_src = open(add1to100_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+# id 為 "add1to100" 的按鈕點按時, 執行 add 方法
+doc["add1to100"].bind('click', add)
+</script>
+</p>
+<p><!-- add 1 to 100 結束--></p>
+<!-- editor1 開始 -->
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<p><!-- 存擋表單開始 --></p>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
+<p></p>
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
+<div id="brython_div1"></div>
+<!-- editor1 結束 --><hr/><h1>HW1</h1>
 <p></p>
 <p><task-lists disabled="disabled" sortable=""></task-lists></p>
 <p><br/>1.將左右碰撞移動的紅色方塊, 改為先移動到水平畫面中心點位置後, 接著上下碰撞移動<a href="https://gist.githubusercontent.com/zeromarurei/22e4b041d9bf9d75ecf1be257ebf4e74/raw/a3ab6d9b3dd5b8f73354dada328275fcc87adf30/gistfile1.txt" rel="nofollow">https://gist.githubusercontent.com/zeromarurei/22e4b041d9bf9d75ecf1be257ebf4e74/raw/a3ab6d9b3dd5b8f73354dada328275fcc87adf30/gistfile1.txt</a><br/> 2.啟動按鈕或中斷紅色方塊上下游碰撞移動<br/> <a href="https://gist.githubusercontent.com/zeromarurei/a3da102e6cba9840a115762e77a9adeb/raw/31b47b50d3dec3284602c8600dd9341d88b321e8/gistfile1.txt" rel="nofollow">https://gist.githubusercontent.com/zeromarurei/a3da102e6cba9840a115762e77a9adeb/raw/31b47b50d3dec3284602c8600dd9341d88b321e8/gistfile1.txt</a><br/> 3.打字<br/> <a href="https://gist.githubusercontent.com/zeromarurei/95f06fcc4633e2d3cb70fc14922d4a0e/raw/292c16e407d32a6836a6fb07b8c0756aa2d7f81e/gistfile1.txt" rel="nofollow">https://gist.githubusercontent.com/zeromarurei/95f06fcc4633e2d3cb70fc14922d4a0e/raw/292c16e407d32a6836a6fb07b8c0756aa2d7f81e/gistfile1.txt</a></p>
@@ -209,7 +327,7 @@ run()
 <p>3. 請將 HW1 與 HW2 的作業內容登錄至個人的 cp2021_hw 倉儲與網站中. </p>
 <p>4. 請在個人作業網站的 HW2 區域下增設一個 H2 頁面, 將該網頁標題命名為 run, 可以如 <a href="https://mde.tw/cp2021/content/run.html">run</a> 頁面中的內容, 並且利用此頁面收集 Python 範例程式. (例如: 可自動執行的貪食蛇)</p>
 <p></p>
-<h2>Examples</h2>
+<h2>W11</h2>
 <p>這個頁面 demo 如何在同一頁面下納入多個線上 Ace 編輯器與執行按鈕. (本動態頁面檔案 <a href="/downloads/Examples.txt">Examples.txt</a>)</p>
 <p>1. 從 1 累加到 100 (以下列 button 呈現).</p>
 <p>2. 教科書 (<a href="https://link.springer.com/book/10.1007/978-981-10-3277-6">Programming with Python</a>) 2.6 Exercises, 共有三個題目, 請分別將程式製作為按鈕 (button).</p>
